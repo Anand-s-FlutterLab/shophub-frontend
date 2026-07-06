@@ -1,0 +1,309 @@
+@import "tailwindcss";
+
+/* ==========================================================================
+   DARK THEME
+   ========================================================================== */
+
+:root[data-theme="dark"] {
+  /* Background */
+  --bg: oklch(0.13 0.015 255);
+  --bg-gradient-start: #030712;
+  --bg-gradient-end: #08111f;
+
+  /* Surfaces */
+  --surface: oklch(0.18 0.018 255);
+  --surface-2: oklch(0.21 0.02 255);
+  --surface-3: oklch(0.24 0.022 255);
+
+  --card-bg: rgba(13, 20, 34, 0.82);
+  --card-border: rgba(63, 94, 138, 0.22);
+
+  /* Primary */
+  --primary: #23c8f8;
+  --primary-hover: #17b7e8;
+  --primary-active: #0fa3d4;
+  --primary-light: #5edbff;
+  --primary-dark: #0e6f96;
+
+  --ring: rgba(35, 200, 248, 0.35);
+
+  /* Text */
+  --text: #f7fafc;
+  --text-muted: #b9c4d4;
+  --text-subtle: #8e9caf;
+  --text-disabled: #5c697b;
+  --text-inverse: #0c1118;
+
+  /* Borders */
+  --border: rgba(84, 110, 150, 0.25);
+  --border-strong: rgba(104, 145, 200, 0.42);
+  --divider: rgba(70, 90, 120, 0.18);
+
+  /* Inputs */
+  --input-bg: rgba(10, 17, 29, 0.72);
+  --input-border: rgba(70, 98, 140, 0.28);
+  --input-border-hover: rgba(35, 200, 248, 0.45);
+  --input-placeholder: #69788e;
+
+  /* Secondary */
+  --secondary-bg: rgba(255, 255, 255, 0.04);
+  --secondary-hover: rgba(255, 255, 255, 0.08);
+  --secondary-active: rgba(255, 255, 255, 0.12);
+
+  /* Glow */
+  --glow-primary: rgba(35, 200, 248, 0.22);
+  --glow-secondary: rgba(0, 123, 255, 0.12);
+  --hero-glow: rgba(17, 170, 255, 0.45);
+
+  /* Status */
+  --success: #22c55e;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+  --info: #3b82f6;
+
+  /* Button */
+  --gradient-button: linear-gradient(
+    135deg,
+    #1b7ff5 0%,
+    #1796f2 45%,
+    #18b7e6 100%
+  );
+
+  --gradient-button-hover: linear-gradient(
+    135deg,
+    #258cff 0%,
+    #1da2ff 45%,
+    #1ec2f1 100%
+  );
+
+  --gradient-button-active: linear-gradient(
+    135deg,
+    #166fe0 0%,
+    #1489e4 45%,
+    #169fd4 100%
+  );
+
+  --shadow-button: 0 8px 20px rgba(27, 127, 245, 0.28);
+  --shadow-button-hover: 0 12px 28px rgba(27, 127, 245, 0.4);
+}
+
+/* ==========================================================================
+   TAILWIND THEME
+   ========================================================================== */
+
+@theme {
+  /* Background */
+  --color-bg: var(--bg);
+  --color-bg-gradient-start: var(--bg-gradient-start);
+  --color-bg-gradient-end: var(--bg-gradient-end);
+
+  /* Surface */
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-surface-3: var(--surface-3);
+
+  --color-card: var(--card-bg);
+  --color-card-border: var(--card-border);
+
+  /* Primary */
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-active: var(--primary-active);
+  --color-primary-light: var(--primary-light);
+  --color-primary-dark: var(--primary-dark);
+
+  --color-ring: var(--ring);
+
+  /* Text */
+  --color-text: var(--text);
+  --color-text-muted: var(--text-muted);
+  --color-text-subtle: var(--text-subtle);
+  --color-text-disabled: var(--text-disabled);
+  --color-text-inverse: var(--text-inverse);
+
+  /* Borders */
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-divider: var(--divider);
+
+  /* Inputs */
+  --color-input: var(--input-bg);
+  --color-input-border: var(--input-border);
+  --color-input-border-hover: var(--input-border-hover);
+  --color-input-placeholder: var(--input-placeholder);
+
+  /* Secondary */
+  --color-secondary: var(--secondary-bg);
+  --color-secondary-hover: var(--secondary-hover);
+  --color-secondary-active: var(--secondary-active);
+
+  /* Glow */
+  --color-glow-primary: var(--glow-primary);
+  --color-glow-secondary: var(--glow-secondary);
+  --color-hero-glow: var(--hero-glow);
+
+  /* Status */
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-danger: var(--danger);
+  --color-info: var(--info);
+
+  /* Radius */
+  --radius-card: var(--radius-lg);
+  --radius-control: var(--radius-md);
+
+  /* Gradients */
+  --background-image-gradient-btn: var(--gradient-button);
+  --background-image-gradient-btn-hover: var(--gradient-button-hover);
+  --background-image-gradient-btn-active: var(--gradient-button-active);
+}
+
+/* ==========================================================================
+   BASE
+   ========================================================================== */
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* ==========================================================================
+   COMPONENTS
+   ========================================================================== */
+
+@layer components {
+  .btn-primary {
+    @apply bg-gradient-btn text-white;
+
+    box-shadow: var(--shadow-button);
+
+    transition:
+      background-image 0.2s ease,
+      transform 0.2s ease,
+      box-shadow 0.2s ease,
+      filter 0.2s ease;
+  }
+
+  .btn-primary:hover {
+    @apply bg-gradient-btn-hover;
+
+    transform: translateY(-1px);
+    filter: brightness(1.05);
+    box-shadow: var(--shadow-button-hover);
+  }
+
+  .btn-primary:active {
+    @apply bg-gradient-btn-active;
+
+    transform: translateY(1px);
+    filter: brightness(0.97);
+  }
+
+  .btn-primary:focus-visible {
+    outline: none;
+    box-shadow:
+      var(--shadow-button-hover),
+      0 0 0 4px var(--ring);
+  }
+
+  .btn-outline-primary {
+    @apply border border-primary-light text-primary rounded-xl;
+
+    background: rgba(35, 200, 248, 0.04);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+
+    transition:
+      background-color 0.2s ease,
+      border-color 0.2s ease,
+      color 0.2s ease,
+      transform 0.2s ease,
+      box-shadow 0.2s ease;
+  }
+
+  .btn-outline-primary:hover {
+    background: rgba(35, 200, 248, 0.08);
+    border-color: var(--primary);
+    color: #fff;
+
+    transform: translateY(-1px);
+
+    box-shadow:
+      0 8px 20px rgba(35, 200, 248, 0.12),
+      0 0 0 1px rgba(35, 200, 248, 0.18);
+  }
+
+  .btn-outline-primary:active {
+    background: rgba(35, 200, 248, 0.12);
+    transform: translateY(1px);
+  }
+
+  .btn-outline-primary:focus-visible {
+    outline: none;
+    box-shadow:
+      0 0 0 4px var(--ring),
+      0 8px 20px rgba(35, 200, 248, 0.15);
+  }
+}
+@utility scrollbar-hide {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@layer base {
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="search"],
+  input[type="tel"],
+  input[type="url"],
+  input[type="number"] {
+    @apply w-full rounded-xl border border-input-border bg-input py-3 pl-12 pr-4 text-text placeholder:text-input-placeholder;
+  }
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--surface-3);
+    border-radius: 999px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--primary);
+  }
+  
+  /* ==========================================================================
+   SCROLLBAR
+   ========================================================================== */
+
+  ::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--surface-3);
+  border-radius: 999px;
+  transition: background-color .25s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+}
+}

@@ -1,0 +1,136 @@
+@import "tailwindcss";
+
+/* 1) Your app theme tokens */
+:root[data-theme="dark"] {
+  /* surfaces */
+  --bg: oklch(0.16 0.01 260);
+  --surface: oklch(0.19 0.01 260);
+  --surface-2: oklch(0.22 0.01 260);
+  --surface-3: oklch(0.25 0.01 260);
+  --surface-accent: color-mix(in oklch, var(--primary) 8%, var(--surface));
+  --overlay: oklch(0.08 0.01 260 / 0.72);
+
+  /* borders */
+  --border: oklch(0.33 0.01 260 / 0.7);
+  --border-strong: oklch(0.43 0.01 260 / 0.95);
+  --divider: oklch(0.28 0.01 260 / 0.85);
+
+  /* text */
+  --text: oklch(0.95 0.01 260);
+  --text-muted: oklch(0.76 0.01 260);
+  --text-subtle: oklch(0.63 0.01 260);
+  --text-disabled: oklch(0.48 0.01 260);
+  --text-inverse: oklch(0.16 0.01 260);
+
+  /* brand / actions */
+  --primary: oklch(0.74 0.11 190);
+  --primary-hover: oklch(0.69 0.11 190);
+  --primary-active: oklch(0.64 0.11 190);
+  --primary-foreground: var(--text-inverse);
+  --ring: oklch(0.74 0.11 190 / 0.35);
+
+  /* secondary actions */
+  --secondary-bg: oklch(0.24 0.01 260);
+  --secondary-hover: oklch(0.28 0.01 260);
+  --secondary-active: oklch(0.31 0.01 260);
+  --secondary-foreground: var(--text);
+
+  /* status */
+  --success: oklch(0.74 0.13 150);
+  --warning: oklch(0.8 0.13 85);
+  --danger: oklch(0.68 0.17 25);
+  --info: oklch(0.7 0.09 245);
+
+  /* form controls */
+  --input-bg: oklch(0.18 0.01 260);
+  --input-border: var(--border);
+  --input-border-hover: var(--border-strong);
+  --input-placeholder: oklch(0.56 0.01 260);
+  --input-disabled-bg: oklch(0.21 0.01 260);
+  --input-disabled-border: oklch(0.26 0.01 260);
+
+  /* disabled state */
+  --disabled-bg: oklch(0.22 0.01 260);
+  --disabled-border: oklch(0.27 0.01 260);
+  --disabled-text: var(--text-disabled);
+
+  /* feedback surfaces */
+  --success-bg: color-mix(in oklch, var(--success) 12%, var(--surface));
+  --warning-bg: color-mix(in oklch, var(--warning) 12%, var(--surface));
+  --danger-bg: color-mix(in oklch, var(--danger) 12%, var(--surface));
+
+  /* radius */
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.25rem;
+  --radius-full: 9999px;
+
+  /* shadows */
+  --shadow-sm: 0 1px 2px oklch(0 0 0 / 0.2);
+  --shadow-md: 0 8px 24px oklch(0 0 0 / 0.28);
+  --shadow-lg: 0 18px 48px oklch(0 0 0 / 0.38);
+
+  /* spacing */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+
+  /* type */
+  --text-xs: clamp(0.75rem, 0.7rem + 0.2vw, 0.875rem);
+  --text-sm: clamp(0.875rem, 0.82rem + 0.2vw, 1rem);
+  --text-base: clamp(1rem, 0.96rem + 0.15vw, 1.125rem);
+  --text-lg: clamp(1.125rem, 1.04rem + 0.4vw, 1.375rem);
+  --text-xl: clamp(1.5rem, 1.2rem + 0.9vw, 2rem);
+}
+
+/* 2) Tailwind theme mapping */
+@theme {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-surface-3: var(--surface-3);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+
+  --color-text: var(--text);
+  --color-text-muted: var(--text-muted);
+  --color-text-subtle: var(--text-subtle);
+  --color-text-disabled: var(--text-disabled);
+
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-active: var(--primary-active);
+  --color-primary-foreground: var(--primary-foreground);
+
+  --color-secondary-bg: var(--secondary-bg);
+  --color-secondary-hover: var(--secondary-hover);
+  --color-secondary-active: var(--secondary-active);
+  --color-secondary-foreground: var(--secondary-foreground);
+
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-danger: var(--danger);
+  --color-info: var(--info);
+
+  --radius-card: var(--radius-lg);
+  --radius-control: var(--radius-md);
+}
+
+/* 3) Base app styles */
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+}
